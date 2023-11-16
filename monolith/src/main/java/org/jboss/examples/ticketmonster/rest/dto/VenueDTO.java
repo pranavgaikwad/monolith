@@ -7,11 +7,11 @@ import org.jboss.examples.ticketmonster.model.Show;
 import org.jboss.examples.ticketmonster.model.TicketPrice;
 import org.jboss.examples.ticketmonster.model.Venue;
 
-import javax.persistence.EntityManager;
-import javax.persistence.criteria.CriteriaBuilder;
-import javax.persistence.criteria.CriteriaQuery;
-import javax.persistence.criteria.Predicate;
-import javax.persistence.criteria.Root;
+import jakarta.persistence.EntityManager;
+import jakarta.persistence.criteria.CriteriaBuilder;
+import jakarta.persistence.criteria.CriteriaQuery;
+import jakarta.persistence.criteria.Predicate;
+import jakarta.persistence.criteria.Root;
 
 import org.jboss.examples.ticketmonster.rest.dto.AddressDTO;
 import org.jboss.examples.ticketmonster.rest.dto.NestedMediaItemDTO;
@@ -25,7 +25,7 @@ import org.jboss.examples.ticketmonster.model.Section;
 
 import java.util.Iterator;
 
-import javax.xml.bind.annotation.XmlRootElement;
+import jakarta.xml.bind.annotation.XmlRootElement;
 
 @XmlRootElement
 public class VenueDTO implements Serializable

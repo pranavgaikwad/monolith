@@ -1,7 +1,7 @@
 package org.jboss.examples.ticketmonster.rest;
 
-import javax.ejb.Stateless;
-import javax.ws.rs.Path;
+import jakarta.ejb.Stateless;
+import jakarta.ws.rs.Path;
 
 import org.jboss.examples.ticketmonster.model.Venue;
 

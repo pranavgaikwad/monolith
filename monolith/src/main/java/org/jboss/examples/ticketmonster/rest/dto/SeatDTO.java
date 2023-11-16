@@ -2,7 +2,7 @@ package org.jboss.examples.ticketmonster.rest.dto;
 
 import java.io.Serializable;
 import org.jboss.examples.ticketmonster.model.Seat;
-import javax.persistence.EntityManager;
+import jakarta.persistence.EntityManager;
 import org.jboss.examples.ticketmonster.rest.dto.NestedSectionDTO;
 
 public class SeatDTO implements Serializable

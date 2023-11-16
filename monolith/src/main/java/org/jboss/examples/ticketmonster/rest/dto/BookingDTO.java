@@ -2,7 +2,7 @@ package org.jboss.examples.ticketmonster.rest.dto;
 
 import java.io.Serializable;
 import org.jboss.examples.ticketmonster.model.Booking;
-import javax.persistence.EntityManager;
+import jakarta.persistence.EntityManager;
 import java.util.Set;
 import java.util.HashSet;
 import org.jboss.examples.ticketmonster.rest.dto.NestedTicketDTO;
@@ -10,7 +10,7 @@ import org.jboss.examples.ticketmonster.model.Ticket;
 import java.util.Iterator;
 import java.util.Date;
 import org.jboss.examples.ticketmonster.rest.dto.NestedPerformanceDTO;
-import javax.xml.bind.annotation.XmlRootElement;
+import jakarta.xml.bind.annotation.XmlRootElement;
 
 @XmlRootElement
 public class BookingDTO implements Serializable

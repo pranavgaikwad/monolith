@@ -2,10 +2,10 @@ package org.jboss.examples.ticketmonster.rest.dto;
 
 import java.io.Serializable;
 import org.jboss.examples.ticketmonster.model.Event;
-import javax.persistence.EntityManager;
+import jakarta.persistence.EntityManager;
 import org.jboss.examples.ticketmonster.rest.dto.NestedMediaItemDTO;
 import org.jboss.examples.ticketmonster.rest.dto.NestedEventCategoryDTO;
-import javax.xml.bind.annotation.XmlRootElement;
+import jakarta.xml.bind.annotation.XmlRootElement;
 
 @XmlRootElement
 public class EventDTO implements Serializable

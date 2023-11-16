@@ -1,6 +1,6 @@
 package org.jboss.examples.ticketmonster.model;
 
-import javax.ejb.ApplicationException;
+import jakarta.ejb.ApplicationException;
 
 /**
  * <p>

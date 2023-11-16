@@ -2,7 +2,7 @@ package org.jboss.examples.ticketmonster.rest.dto;
 
 import java.io.Serializable;
 import org.jboss.examples.ticketmonster.model.Address;
-import javax.persistence.EntityManager;
+import jakarta.persistence.EntityManager;
 
 public class AddressDTO implements Serializable
 {
