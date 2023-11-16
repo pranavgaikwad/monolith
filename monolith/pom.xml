@@ -290,6 +290,9 @@
                     <groupId>org.wildfly.plugins</groupId>
                     <artifactId>wildfly-maven-plugin</artifactId>
                     <version>${version.wildfly.maven.plugin}</version>
+                    <configuration>
+                        <version>10.1.0.Final</version>
+                    </configuration>
                 </plugin>
                 <plugin>
                     <groupId>io.fabric8</groupId>
