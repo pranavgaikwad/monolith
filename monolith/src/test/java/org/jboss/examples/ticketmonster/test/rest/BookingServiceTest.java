@@ -1,9 +1,5 @@
 package org.jboss.examples.ticketmonster.test.rest;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotNull;
-import static org.junit.Assert.fail;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -13,8 +9,7 @@ import jakarta.ws.rs.core.MultivaluedHashMap;
 import jakarta.ws.rs.core.MultivaluedMap;
 
 import org.jboss.arquillian.container.test.api.Deployment;
-import org.jboss.arquillian.junit.Arquillian;
-import org.jboss.arquillian.junit.InSequence;
+import org.jboss.arquillian.junit5.ArquillianExtension;
 import org.jboss.examples.ticketmonster.model.Booking;
 import org.jboss.examples.ticketmonster.model.Performance;
 import org.jboss.examples.ticketmonster.model.Show;
@@ -22,12 +17,17 @@ import org.jboss.examples.ticketmonster.model.Ticket;
 import org.jboss.examples.ticketmonster.model.TicketPrice;
 import org.jboss.examples.ticketmonster.rest.*;
 import org.jboss.shrinkwrap.api.spec.WebArchive;
-import org.junit.Assert;
-import org.junit.Ignore;
-import org.junit.Test;
-import org.junit.runner.RunWith;
+import org.junit.jupiter.api.Disabled;
+import org.junit.jupiter.api.Order;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
 
-@RunWith(Arquillian.class)
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.fail;
+
+@ExtendWith(ArquillianExtension.class)
 public class BookingServiceTest {
 
     @Deployment
@@ -42,7 +42,7 @@ public class BookingServiceTest {
     private ShowService showService;
 
     @Test
-    @InSequence(1)
+    @Order(1)
     public void testCreateBookings() {
         BookingRequest br = createBookingRequest(1l, 0, new int[]{4, 1}, new int[]{1,1}, new int[]{3,1});
         bookingService.createBooking(br);
@@ -54,8 +54,9 @@ public class BookingServiceTest {
         bookingService.createBooking(br3);
     }
 
-    @Test @Ignore
-    @InSequence(10)
+    @Test
+    @Disabled
+    @Order(10)
     public void testGetBookings() {
         checkBooking1();
         checkBooking2();
@@ -122,7 +123,7 @@ public class BookingServiceTest {
     }
 
     @Test
-    @InSequence(10)
+    @Order(10)
     public void testPagination() {
 
         // Test pagination logic
@@ -139,7 +140,7 @@ public class BookingServiceTest {
     }
 
     @Test
-    @InSequence(20)
+    @Order(20)
     public void testDelete() {
         bookingService.deleteBooking(2l);
         checkBooking1();
@@ -185,7 +186,7 @@ public class BookingServiceTest {
         }
         System.out.println(bookedTickets);
         for (String requiredTicket : requiredTickets) {
-            Assert.assertTrue("Required ticket not present: " + requiredTicket, bookedTickets.contains(requiredTicket));
+            assertTrue(bookedTickets.contains(requiredTicket), "Required ticket not present: " + requiredTicket);
         }
     }
 
