@@ -168,8 +168,9 @@ public abstract class BaseEntityService<T> {
         final CriteriaBuilder criteriaBuilder = entityManager.getCriteriaBuilder();
         final CriteriaQuery<T> criteriaQuery = criteriaBuilder.createQuery(entityClass);
         Root<T> root = criteriaQuery.from(entityClass);
+        CriteriaQuery<T> select = criteriaQuery.select(criteriaQuery.getSelection());
         Predicate condition = criteriaBuilder.equal(root.get("id"), id);
-        criteriaQuery.select(criteriaBuilder.createQuery(entityClass).getSelection()).where(condition);
+        select.where(condition);
         return entityManager.createQuery(criteriaQuery).getSingleResult();
     }
 }
