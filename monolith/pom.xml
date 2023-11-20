@@ -4,7 +4,7 @@
     <groupId>org.jboss.examples.eap</groupId>
     <artifactId>ticket-monster</artifactId>
     <version>3.0.0-SNAPSHOT</version>
-    <packaging>war</packaging>
+    <packaging>jar</packaging>
     <name>ticket-monster</name>
     <description>A starter HTML5 + REST webapp project for use on JBoss EAP.</description>
 
@@ -111,7 +111,6 @@
         <docker.image.name>%g/%a:%l</docker.image.name>
 
         <compiler-plugin.version>3.10.1</compiler-plugin.version>
-        <maven.compiler.release>11</maven.compiler.release>
 
         <quarkus.platform.artifact-id>quarkus-bom</quarkus.platform.artifact-id>
         <quarkus.platform.group-id>io.quarkus.platform</quarkus.platform.group-id>
@@ -192,7 +191,10 @@
             <groupId>io.quarkus</groupId>
             <artifactId>quarkus-jdbc-mysql</artifactId>
         </dependency>
-
+        <dependency>
+            <groupId>io.quarkus</groupId>
+            <artifactId>quarkus-hibernate-validator</artifactId>
+        </dependency>
 
 <!--        <dependency>-->
 <!--            <groupId>jakarta.ejb</groupId>-->
@@ -208,11 +210,6 @@
         <dependency>
             <groupId>io.quarkus</groupId>
             <artifactId>quarkus-undertow</artifactId>
-        </dependency>
-
-        <dependency>
-            <groupId>io.quarkus</groupId>
-            <artifactId>quarkus-hibernate-validator</artifactId>
         </dependency>
 
         <!-- Now we declare any tools needed -->
@@ -354,6 +351,13 @@
 
             </plugins>
         </pluginManagement>
+
+        <plugins>
+            <plugin>
+                <groupId>${quarkus.platform.group-id}</groupId>
+                <artifactId>quarkus-maven-plugin</artifactId>
+            </plugin>
+        </plugins>
     </build>
 
     <profiles>

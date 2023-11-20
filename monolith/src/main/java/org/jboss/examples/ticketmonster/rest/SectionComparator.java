@@ -1,8 +1,8 @@
 package org.jboss.examples.ticketmonster.rest;
 
-import java.util.Comparator;
-
 import org.jboss.examples.ticketmonster.model.Section;
+
+import java.util.Comparator;
 
 /**
  * A utility comparator for sections, sorting them by id

@@ -1,16 +1,16 @@
 package org.jboss.examples.ticketmonster.rest;
 
-import java.io.File;
-
 import jakarta.inject.Inject;
 import jakarta.persistence.EntityManager;
+import jakarta.persistence.PersistenceContext;
 import jakarta.ws.rs.GET;
 import jakarta.ws.rs.Path;
 import jakarta.ws.rs.PathParam;
 import jakarta.ws.rs.Produces;
-
 import org.jboss.examples.ticketmonster.model.MediaItem;
 import org.jboss.examples.ticketmonster.service.MediaManager;
+
+import java.io.File;
 
 @Path("/media")
 /**
@@ -23,7 +23,8 @@ public class MediaService {
     @Inject
     private MediaManager mediaManager;
     
-    @Inject EntityManager entityManager;
+    @PersistenceContext
+    EntityManager entityManager;
 
     @GET
     @Path("/cache/{cachedFileName:\\S*}")

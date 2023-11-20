@@ -8,6 +8,7 @@ import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
+import jakarta.persistence.Lob;
 import jakarta.persistence.ManyToOne;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
@@ -85,6 +86,7 @@ public class Event implements Serializable {
      * </ol>
      */
     @NotNull
+    @Column(columnDefinition = "TEXT")
     @Size(min = 20, max = 1000, message = "An event's description must contain between 20 and 1000 characters")
     private String description;
 

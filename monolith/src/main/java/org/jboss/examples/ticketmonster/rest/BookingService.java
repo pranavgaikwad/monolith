@@ -1,14 +1,6 @@
 package org.jboss.examples.ticketmonster.rest;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
-import java.util.TreeMap;
-
-import jakarta.ejb.Stateless;
+import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.enterprise.event.Event;
 import jakarta.inject.Inject;
 import jakarta.validation.ConstraintViolation;
@@ -21,7 +13,6 @@ import jakarta.ws.rs.PathParam;
 import jakarta.ws.rs.core.MediaType;
 import jakarta.ws.rs.core.MultivaluedHashMap;
 import jakarta.ws.rs.core.Response;
-
 import org.jboss.examples.ticketmonster.model.Booking;
 import org.jboss.examples.ticketmonster.model.Performance;
 import org.jboss.examples.ticketmonster.model.Seat;
@@ -33,6 +24,14 @@ import org.jboss.examples.ticketmonster.service.AllocatedSeats;
 import org.jboss.examples.ticketmonster.service.SeatAllocationService;
 import org.jboss.examples.ticketmonster.util.qualifier.Cancelled;
 import org.jboss.examples.ticketmonster.util.qualifier.Created;
+
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
+import java.util.TreeMap;
 
 /**
  * <p>
@@ -49,17 +48,17 @@ import org.jboss.examples.ticketmonster.util.qualifier.Created;
  *     This is a stateless service, we declare it as an EJB for transaction demarcation
  * </p>
  */
-@Stateless
+@ApplicationScoped
 public class BookingService extends BaseEntityService<Booking> {
 
     @Inject
     SeatAllocationService seatAllocationService;
 
     @Inject @Cancelled
-    private Event<Booking> cancelledBookingEvent;
+    Event<Booking> cancelledBookingEvent;
 
     @Inject @Created
-    private Event<Booking> newBookingEvent;
+    Event<Booking> newBookingEvent;
     
     public BookingService() {
         super(Booking.class);

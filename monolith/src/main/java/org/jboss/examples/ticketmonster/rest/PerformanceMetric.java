@@ -1,8 +1,8 @@
 package org.jboss.examples.ticketmonster.rest;
 
-import java.util.Date;
-
 import org.jboss.examples.ticketmonster.model.Performance;
+
+import java.util.Date;
 
 /**
  * Metric data for a Performance. Contains the datetime for the performance to

@@ -1,11 +1,8 @@
 package org.jboss.examples.ticketmonster.rest;
 
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-
 import jakarta.inject.Inject;
 import jakarta.persistence.EntityManager;
+import jakarta.persistence.PersistenceContext;
 import jakarta.persistence.TypedQuery;
 import jakarta.persistence.criteria.CriteriaBuilder;
 import jakarta.persistence.criteria.CriteriaQuery;
@@ -19,6 +16,10 @@ import jakarta.ws.rs.core.Context;
 import jakarta.ws.rs.core.MediaType;
 import jakarta.ws.rs.core.MultivaluedMap;
 import jakarta.ws.rs.core.UriInfo;
+
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 /**
  * <p>
@@ -68,8 +69,8 @@ import jakarta.ws.rs.core.UriInfo;
  */
 public abstract class BaseEntityService<T> {
 
-    @Inject
-    private EntityManager entityManager;
+    @PersistenceContext
+    EntityManager entityManager;
 
     private Class<T> entityClass;
 

@@ -1,16 +1,15 @@
 package org.jboss.examples.ticketmonster.rest;
 
-import java.util.ArrayList;
-import java.util.List;
-
-import jakarta.ejb.Stateless;
+import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.persistence.criteria.CriteriaBuilder;
 import jakarta.persistence.criteria.Predicate;
 import jakarta.persistence.criteria.Root;
 import jakarta.ws.rs.Path;
 import jakarta.ws.rs.core.MultivaluedMap;
-
 import org.jboss.examples.ticketmonster.model.Event;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * <p>
@@ -27,7 +26,7 @@ import org.jboss.examples.ticketmonster.model.Event;
  *     This is a stateless service, we declare it as an EJB for transaction demarcation
  * </p>
  */
-@Stateless
+@ApplicationScoped
 public class EventService extends BaseEntityService<Event> {
 
     public EventService() {

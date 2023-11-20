@@ -1,9 +1,8 @@
 package org.jboss.examples.ticketmonster.rest;
 
-import java.util.ArrayList;
-import java.util.List;
-
-import jakarta.ejb.Stateless;
+import jakarta.enterprise.context.ApplicationScoped;
+import jakarta.enterprise.context.RequestScoped;
+import jakarta.inject.Inject;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.NoResultException;
 import jakarta.persistence.OptimisticLockException;
@@ -21,18 +20,21 @@ import jakarta.ws.rs.QueryParam;
 import jakarta.ws.rs.core.Response;
 import jakarta.ws.rs.core.Response.Status;
 import jakarta.ws.rs.core.UriBuilder;
-import org.jboss.examples.ticketmonster.rest.dto.EventDTO;
 import org.jboss.examples.ticketmonster.model.Event;
+import org.jboss.examples.ticketmonster.rest.dto.EventDTO;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * 
  */
-@Stateless
+@ApplicationScoped
 @Path("forge/events")
 public class EventEndpoint
 {
-   @PersistenceContext(unitName = "primary")
-   private EntityManager em;
+   @PersistenceContext
+   EntityManager em;
 
    @POST
    @Consumes("application/json")

@@ -14,8 +14,7 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
-
-import org.hibernate.validator.constraints.NotEmpty;
+import jakarta.validation.constraints.NotEmpty;
 
 /**
  * <p>

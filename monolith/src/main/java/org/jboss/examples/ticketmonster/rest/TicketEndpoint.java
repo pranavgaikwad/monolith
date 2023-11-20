@@ -1,9 +1,7 @@
 package org.jboss.examples.ticketmonster.rest;
 
-import java.util.ArrayList;
-import java.util.List;
-
-import jakarta.ejb.Stateless;
+import jakarta.enterprise.context.ApplicationScoped;
+import jakarta.inject.Inject;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.NoResultException;
 import jakarta.persistence.OptimisticLockException;
@@ -21,18 +19,21 @@ import jakarta.ws.rs.QueryParam;
 import jakarta.ws.rs.core.Response;
 import jakarta.ws.rs.core.Response.Status;
 import jakarta.ws.rs.core.UriBuilder;
-import org.jboss.examples.ticketmonster.rest.dto.TicketDTO;
 import org.jboss.examples.ticketmonster.model.Ticket;
+import org.jboss.examples.ticketmonster.rest.dto.TicketDTO;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * 
  */
-@Stateless
+@ApplicationScoped
 @Path("/tickets")
 public class TicketEndpoint
 {
-   @PersistenceContext(unitName = "primary")
-   private EntityManager em;
+   @PersistenceContext
+   EntityManager em;
 
    @POST
    @Consumes("application/json")

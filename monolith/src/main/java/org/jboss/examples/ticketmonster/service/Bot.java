@@ -9,11 +9,11 @@ import java.util.Random;
 import java.util.concurrent.TimeUnit;
 
 import jakarta.annotation.Resource;
-import jakarta.ejb.Stateless;
 import jakarta.ejb.Timeout;
 import jakarta.ejb.Timer;
 import jakarta.ejb.TimerConfig;
 import jakarta.ejb.TimerService;
+import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.enterprise.event.Event;
 import jakarta.inject.Inject;
 import jakarta.ws.rs.core.MultivaluedHashMap;
@@ -25,7 +25,7 @@ import org.jboss.examples.ticketmonster.model.TicketPrice;
 import org.jboss.examples.ticketmonster.rest.*;
 import org.jboss.examples.ticketmonster.util.qualifier.BotMessage;
 
-@Stateless
+@ApplicationScoped
 public class Bot {
     
     private static final Random random = new Random(System.nanoTime());
