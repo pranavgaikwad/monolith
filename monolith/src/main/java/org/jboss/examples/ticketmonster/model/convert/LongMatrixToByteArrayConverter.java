@@ -12,6 +12,10 @@ public class LongMatrixToByteArrayConverter implements AttributeConverter<long[]
 
     @Override
     public byte[] convertToDatabaseColumn(long[][] attribute) {
+        if (attribute == null) {
+            return null;
+        }
+
         try (ByteArrayOutputStream baos = new ByteArrayOutputStream();
              ObjectOutputStream oos = new ObjectOutputStream(baos)) {
             oos.writeObject(attribute);
@@ -27,6 +31,10 @@ public class LongMatrixToByteArrayConverter implements AttributeConverter<long[]
             // Deserialize the byte[] back to long[][]
             // (This assumes that the stored data is in the same format)
             // Caution: This might throw exceptions if the stored data is corrupted or of different format
+            if (dbData == null) {
+                return null;
+            }
+
             return (long[][]) new java.io.ObjectInputStream(new java.io.ByteArrayInputStream(dbData)).readObject();
         } catch (IOException | ClassNotFoundException e) {
             throw new RuntimeException("Error converting byte[] to long[][]", e);
