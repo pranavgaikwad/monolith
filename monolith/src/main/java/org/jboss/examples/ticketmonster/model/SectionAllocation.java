@@ -1,25 +1,27 @@
 package org.jboss.examples.ticketmonster.model;
 
 
-import static jakarta.persistence.GenerationType.IDENTITY;
-
-import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-
+import jakarta.persistence.Column;
 import jakarta.persistence.Convert;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
 import jakarta.persistence.Lob;
 import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.PostLoad;
 import jakarta.persistence.Table;
 import jakarta.persistence.UniqueConstraint;
 import jakarta.persistence.Version;
 import jakarta.validation.constraints.NotNull;
 import org.jboss.examples.ticketmonster.model.convert.LongMatrixToByteArrayConverter;
+
+import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
+import static jakarta.persistence.GenerationType.IDENTITY;
 
 /**
  * <p>
@@ -109,6 +111,7 @@ public class SectionAllocation implements Serializable {
      * </p>
      */
     @Lob
+    @Column(columnDefinition = "BLOB")
     @Convert(converter = LongMatrixToByteArrayConverter.class)
     private long[][] allocated;
 

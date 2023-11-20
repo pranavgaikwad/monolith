@@ -54,7 +54,7 @@ public class SeatAllocationService {
                 .setParameter("performanceId", performance.getId())
                 .setParameter("sectionId", section.getId())
                 .getSingleResult();
-        } catch (NoResultException noSectionEx) {
+        } catch (Exception noSectionEx) {
             // Create the SectionAllocation since it doesn't exist
             sectionAllocationStatus = new SectionAllocation(performance, section);
             entityManager.persist(sectionAllocationStatus);

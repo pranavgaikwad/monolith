@@ -3,6 +3,7 @@ package org.jboss.examples.ticketmonster.rest;
 import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.enterprise.event.Event;
 import jakarta.inject.Inject;
+import jakarta.transaction.Transactional;
 import jakarta.validation.ConstraintViolation;
 import jakarta.validation.ConstraintViolationException;
 import jakarta.ws.rs.Consumes;
@@ -119,6 +120,7 @@ public class BookingService extends BaseEntityService<Booking> {
      * <p> Data is received in JSON format. For easy handling, it will be unmarshalled in the support
      * {@link BookingRequest} class.
      */
+    @Transactional
     @Consumes(MediaType.APPLICATION_JSON)
     public Response createBooking(BookingRequest bookingRequest) {
         try {
