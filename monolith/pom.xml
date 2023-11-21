@@ -8,84 +8,6 @@
     <name>ticket-monster</name>
     <description>A starter HTML5 + REST webapp project for use on JBoss EAP.</description>
 
-    <!-- Activate JBoss Product Maven repository.
-
-        NOTE: Configuring the Maven repository in the pom.xml file is not a recommended procedure
-        and is only done here to make it easier to use the quickstarts.
-
-        For more information about how to configure Maven for your application,
-        see the section entitled 'Use the Maven Repository'
-        in the Development Guide for Red Hat JBoss Enterprise Application Platform located here:
-
-        https://access.redhat.com/documentation/en-US/JBoss_Enterprise_Application_Platform/
-    -->
-<!--    <repositories>-->
-<!--        <repository>-->
-<!--            <id>redhat-ga-repository</id>-->
-<!--            <url>https://maven.repository.redhat.com/ga/</url>-->
-<!--            <releases>-->
-<!--                <enabled>true</enabled>-->
-<!--            </releases>-->
-<!--            <snapshots>-->
-<!--                <enabled>false</enabled>-->
-<!--            </snapshots>-->
-<!--        </repository>-->
-<!--        <repository>-->
-<!--            <id>jboss-ga-repository</id>-->
-<!--            <url>http://maven.repository.redhat.com/techpreview/all</url>-->
-<!--            <releases>-->
-<!--                <enabled>true</enabled>-->
-<!--            </releases>-->
-<!--            <snapshots>-->
-<!--                <enabled>false</enabled>-->
-<!--            </snapshots>-->
-<!--        </repository>-->
-<!--        <repository>-->
-<!--            <id>jboss-earlyaccess-repository</id>-->
-<!--            <url>http://maven.repository.redhat.com/earlyaccess/all/</url>-->
-<!--            <releases>-->
-<!--                <enabled>true</enabled>-->
-<!--            </releases>-->
-<!--            <snapshots>-->
-<!--                <enabled>false</enabled>-->
-<!--            </snapshots>-->
-<!--        </repository>-->
-<!--        <repository>-->
-<!--            <id>redhat.ea</id>-->
-<!--            <name>Red Hat Early Access Repository</name>-->
-<!--            <url>https://maven.repository.redhat.com/earlyaccess/all</url>-->
-<!--            <snapshots>-->
-<!--                <enabled>false</enabled>-->
-<!--            </snapshots>-->
-<!--            <releases>-->
-<!--                <enabled>true</enabled>-->
-<!--            </releases>-->
-<!--        </repository>-->
-<!--    </repositories>-->
-
-<!--    <pluginRepositories>-->
-<!--        <pluginRepository>-->
-<!--            <id>redhat-ga-repository</id>-->
-<!--            <url>https://maven.repository.redhat.com/ga/</url>-->
-<!--            <releases>-->
-<!--                <enabled>true</enabled>-->
-<!--            </releases>-->
-<!--            <snapshots>-->
-<!--                <enabled>false</enabled>-->
-<!--            </snapshots>-->
-<!--        </pluginRepository>-->
-<!--        <pluginRepository>-->
-<!--            <id>jboss-earlyaccess-plugin-repository</id>-->
-<!--            <url>http://maven.repository.redhat.com/earlyaccess/all/</url>-->
-<!--            <releases>-->
-<!--                <enabled>true</enabled>-->
-<!--            </releases>-->
-<!--            <snapshots>-->
-<!--                <enabled>false</enabled>-->
-<!--            </snapshots>-->
-<!--        </pluginRepository>-->
-<!--    </pluginRepositories>-->
-
     <properties>
         <!-- Explicitly declaring the source encoding eliminates the following 
             message: -->
@@ -134,21 +56,10 @@
 
     <dependencies>
 
-<!--        <dependency>-->
-<!--            <groupId>jakarta.enterprise</groupId>-->
-<!--            <artifactId>jakarta.enterprise.cdi-api</artifactId>-->
-<!--            <scope>provided</scope>-->
-<!--        </dependency>-->
-<!--        <dependency>-->
-<!--            <groupId>jakarta.inject</groupId>-->
-<!--            <artifactId>jakarta.inject-api</artifactId>-->
-<!--            <scope>provided</scope>-->
-<!--        </dependency>-->
         <dependency>
             <groupId>io.quarkus</groupId>
             <artifactId>quarkus-arc</artifactId>
         </dependency>
-
 
         <dependency>
             <groupId>jakarta.validation</groupId>
@@ -156,33 +67,17 @@
             <scope>provided</scope>
         </dependency>
 
-        <!-- Import the Common Annotations API (JSR-250), we use provided 
-            scope as the API is included in JBoss EAP -->
         <dependency>
             <groupId>jakarta.annotation</groupId>
             <artifactId>jakarta.annotation-api</artifactId>
             <scope>provided</scope>
         </dependency>
 
-        <!-- Import the JAX-RS API, we use provided scope as the API is included
-            in JBoss EAP -->
-<!--        <dependency>-->
-<!--            <groupId>jakarta.ws.rs</groupId>-->
-<!--            <artifactId>jakarta.ws.rs-api</artifactId>-->
-<!--            <scope>provided</scope>-->
-<!--        </dependency>-->
         <dependency>
             <groupId>io.quarkus</groupId>
             <artifactId>quarkus-resteasy-reactive</artifactId>
         </dependency>
 
-        <!-- Import the JPA API, we use provided scope as the API is included 
-            in JBoss EAP -->
-<!--        <dependency>-->
-<!--            <groupId>jakarta.persistence</groupId>-->
-<!--            <artifactId>jakarta.persistence-api</artifactId>-->
-<!--            <scope>provided</scope>-->
-<!--        </dependency>-->
         <dependency>
             <groupId>io.quarkus</groupId>
             <artifactId>quarkus-hibernate-orm</artifactId>
@@ -196,17 +91,6 @@
             <artifactId>quarkus-hibernate-validator</artifactId>
         </dependency>
 
-<!--        <dependency>-->
-<!--            <groupId>jakarta.ejb</groupId>-->
-<!--            <artifactId>jakarta.ejb-api</artifactId>-->
-<!--            <scope>provided</scope>-->
-<!--        </dependency>-->
-
-<!--        <dependency>-->
-<!--            <groupId>jakarta.servlet</groupId>-->
-<!--            <artifactId>jakarta.servlet-api</artifactId>-->
-<!--            <scope>provided</scope>-->
-<!--        </dependency>-->
         <dependency>
             <groupId>io.quarkus</groupId>
             <artifactId>quarkus-undertow</artifactId>
@@ -233,22 +117,10 @@
             <scope>test</scope>
         </dependency>
 
-        <!-- RESTEasy dependencies that bring in Jackson Core and RESTEasy APIs+SPIs, which we use for
-            fine tuning the content of the JSON responses -->
-<!--        <dependency>-->
-<!--            <groupId>org.jboss.resteasy</groupId>-->
-<!--            <artifactId>resteasy-jackson2-provider</artifactId>-->
-<!--            <scope>provided</scope>-->
-<!--        </dependency>-->
         <dependency>
             <groupId>io.quarkus</groupId>
             <artifactId>quarkus-resteasy-reactive-jackson</artifactId>
         </dependency>
-<!--        <dependency>-->
-<!--            <groupId>org.jboss.resteasy</groupId>-->
-<!--            <artifactId>resteasy-jaxrs</artifactId>-->
-<!--            <version>3.15.1.Final</version>-->
-<!--        </dependency>-->
 
     </dependencies>
 
@@ -271,19 +143,6 @@
                     </configuration>
                 </plugin>
 
-<!-- We don't want to generate a war anymore -->
-<!--                <plugin>-->
-<!--                    <artifactId>maven-war-plugin</artifactId>-->
-<!--                    <version>2.1.1</version>-->
-<!--                    <configuration>-->
-<!--                        <failOnMissingWebXml>false</failOnMissingWebXml>-->
-<!--                        <archive>-->
-<!--                            <manifestEntries>-->
-<!--                                <Dependencies>org.jboss.as.naming,org.jboss.as.server,org.jboss.msc</Dependencies>-->
-<!--                            </manifestEntries>-->
-<!--                        </archive>-->
-<!--                    </configuration>-->
-<!--                </plugin>-->
 
                 <plugin>
                     <groupId>${quarkus.platform.group-id}</groupId>
@@ -357,10 +216,6 @@
             </properties>
         </profile>
         <profile>
-            <!-- The default profile skips all tests, though you can tune
-                it to run just unit tests based on a custom pattern -->
-            <!-- Seperate profiles are provided for running all tests, including
-                Arquillian tests that execute in the specified container -->
             <id>default</id>
             <activation>
                 <activeByDefault>true</activeByDefault>
@@ -378,88 +233,6 @@
             </build>
         </profile>
 
-
-
-        <profile>
-            <id>mysql</id>
-            <build>
-                <resources>
-                    <resource>
-                        <directory>src/main/resources-mysql</directory>
-                    </resource>
-                    <resource>
-                        <directory>src/main/resources</directory>
-                        <includes>
-                            <include>**/*</include>
-                        </includes>
-                        <excludes>
-                            <exclude>META-INF/*</exclude>
-                        </excludes>
-                    </resource>
-                </resources>
-                <plugins>
-                    <plugin>
-                        <artifactId>maven-surefire-plugin</artifactId>
-                        <version>${version.surefire.plugin}</version>
-                        <configuration>
-                            <skip>true</skip>
-                        </configuration>
-                    </plugin>
-                </plugins>
-            </build>
-        </profile>
-
-        <profile>
-            <id>postgresql</id>
-            <build>
-                <resources>
-                    <resource>
-                        <directory>src/main/resources-postgresql</directory>
-                    </resource>
-                    <resource>
-                        <directory>src/main/resources</directory>
-                        <includes>
-                            <include>**/*</include>
-                        </includes>
-                        <excludes>
-                            <exclude>META-INF/*</exclude>
-                        </excludes>
-                    </resource>
-                </resources>
-                <plugins>
-                    <plugin>
-                        <artifactId>maven-surefire-plugin</artifactId>
-                        <version>${surefire-plugin.version}</version>
-                        <configuration>
-                            <skip>true</skip>
-                        </configuration>
-                    </plugin>
-                </plugins>
-            </build>
-        </profile>
-<!--        <profile>-->
-<!--            <id>openshift</id>-->
-<!--            <properties>-->
-<!--                &lt;!&ndash; we need this for now because fmp doesn't support straight binary s2i builds &ndash;&gt;-->
-<!--                <fabric8.build.strategy>docker</fabric8.build.strategy>-->
-<!--            </properties>-->
-<!--            <build>-->
-<!--                <plugins>-->
-<!--                    <plugin>-->
-<!--                        <groupId>io.fabric8</groupId>-->
-<!--                        <artifactId>fabric8-maven-plugin</artifactId>-->
-<!--                        <version>${fabric8.maven.plugin.version}</version>-->
-<!--                        <executions>-->
-<!--                            <execution>-->
-<!--                                <goals>-->
-<!--                                    <goal>resource</goal>-->
-<!--                                </goals>-->
-<!--                            </execution>-->
-<!--                        </executions>-->
-<!--                    </plugin>-->
-<!--                </plugins>-->
-<!--            </build>-->
-<!--        </profile>-->
         <profile>
             <id>kubernetes</id>
             <properties>
