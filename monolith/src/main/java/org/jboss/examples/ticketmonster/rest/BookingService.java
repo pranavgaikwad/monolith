@@ -82,6 +82,7 @@ public class BookingService extends BaseEntityService<Booking> {
      * @return
      */
     @DELETE
+    @Transactional
     @Path("/{id:[0-9][0-9]*}")
     public Response deleteBooking(@PathParam("id") Long id) {
         Booking booking = getEntityManager().find(Booking.class, id);

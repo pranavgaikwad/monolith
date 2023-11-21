@@ -225,23 +225,6 @@
             <artifactId>quarkus-junit5</artifactId>
         </dependency>
 
-        <!-- Optional, but highly recommended -->
-        <!-- Arquillian allows you to test enterprise code such as EJBs and 
-            Transactional(JTA) JPA from JUnit/TestNG -->
-        <dependency>
-            <groupId>org.jboss.arquillian.junit5</groupId>
-            <artifactId>arquillian-junit5-container</artifactId>
-            <version>1.7.1.Final</version>
-            <scope>test</scope>
-        </dependency>
-
-        <dependency>
-            <groupId>org.jboss.arquillian.protocol</groupId>
-            <artifactId>arquillian-protocol-servlet</artifactId>
-            <version>1.7.1.Final</version>
-            <scope>test</scope>
-        </dependency>
-
         <dependency>
             <groupId>org.jboss.shrinkwrap.resolver</groupId>
             <artifactId>shrinkwrap-resolver-depchain</artifactId>
@@ -395,36 +378,6 @@
             </build>
         </profile>
 
-
-<!--        <profile>-->
-<!--            &lt;!&ndash; An optional Arquillian testing profile that executes tests-->
-<!--                in your JBoss EAP instance &ndash;&gt;-->
-<!--            &lt;!&ndash; This profile will start a new JBoss EAP instance, and execute-->
-<!--                the test, shutting it down when done &ndash;&gt;-->
-<!--            &lt;!&ndash; Run with: mvn clean test -Parq-wildfly-managed &ndash;&gt;-->
-<!--            <id>arq-wildfly-managed</id>-->
-<!--            <dependencies>-->
-<!--                <dependency>-->
-<!--                    <groupId>org.wildfly.arquillian</groupId>-->
-<!--                    <artifactId>wildfly-arquillian-container-managed</artifactId>-->
-<!--                    <scope>test</scope>-->
-<!--                </dependency>-->
-<!--            </dependencies>-->
-<!--        </profile>-->
-
-<!--        <profile>-->
-<!--            &lt;!&ndash; An optional Arquillian testing profile that executes tests-->
-<!--                in a remote JBoss EAP instance &ndash;&gt;-->
-<!--            &lt;!&ndash; Run with: mvn clean test -Parq-wildfly-remote &ndash;&gt;-->
-<!--            <id>arq-wildfly-remote</id>-->
-<!--            <dependencies>-->
-<!--                <dependency>-->
-<!--                    <groupId>org.wildfly.arquillian</groupId>-->
-<!--                    <artifactId>wildfly-arquillian-container-remote</artifactId>-->
-<!--                    <scope>test</scope>-->
-<!--                </dependency>-->
-<!--            </dependencies>-->
-<!--        </profile>-->
 
 
         <profile>

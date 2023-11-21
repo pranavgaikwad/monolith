@@ -1,45 +1,42 @@
 package org.jboss.examples.ticketmonster.test.rest;
 
-import java.util.ArrayList;
-import java.util.List;
-
+import io.quarkus.test.junit.QuarkusTest;
 import jakarta.inject.Inject;
 import jakarta.persistence.NoResultException;
 import jakarta.ws.rs.core.MultivaluedHashMap;
 import jakarta.ws.rs.core.MultivaluedMap;
-
-import org.jboss.arquillian.container.test.api.Deployment;
-import org.jboss.arquillian.junit5.ArquillianExtension;
 import org.jboss.examples.ticketmonster.model.Booking;
 import org.jboss.examples.ticketmonster.model.Performance;
 import org.jboss.examples.ticketmonster.model.Show;
 import org.jboss.examples.ticketmonster.model.Ticket;
 import org.jboss.examples.ticketmonster.model.TicketPrice;
-import org.jboss.examples.ticketmonster.rest.*;
-import org.jboss.shrinkwrap.api.spec.WebArchive;
+import org.jboss.examples.ticketmonster.rest.BookingRequest;
+import org.jboss.examples.ticketmonster.rest.BookingService;
+import org.jboss.examples.ticketmonster.rest.ShowService;
+import org.jboss.examples.ticketmonster.rest.TicketRequest;
 import org.junit.jupiter.api.Disabled;
+import org.junit.jupiter.api.MethodOrderer;
 import org.junit.jupiter.api.Order;
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.extension.ExtendWith;
+import org.junit.jupiter.api.TestMethodOrder;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.junit.jupiter.api.Assertions.fail;
 
-@ExtendWith(ArquillianExtension.class)
+@QuarkusTest
+@TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 public class BookingServiceTest {
 
-    @Deployment
-    public static WebArchive deployment() {
-        return RESTDeployment.deployment();
-    }
+    @Inject
+    BookingService bookingService;
 
     @Inject
-    private BookingService bookingService;
-
-    @Inject
-    private ShowService showService;
+    ShowService showService;
 
     @Test
     @Order(1)
@@ -55,7 +52,6 @@ public class BookingServiceTest {
     }
 
     @Test
-    @Disabled
     @Order(10)
     public void testGetBookings() {
         checkBooking1();
