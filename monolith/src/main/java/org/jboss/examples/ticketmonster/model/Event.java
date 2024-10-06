@@ -1,16 +1,17 @@
 package org.jboss.examples.ticketmonster.model;
 
-import static javax.persistence.GenerationType.IDENTITY;
+import static jakarta.persistence.GenerationType.IDENTITY;
 
 import java.io.Serializable;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.ManyToOne;
-import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Size;
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.Id;
+import jakarta.persistence.Lob;
+import jakarta.persistence.ManyToOne;
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Size;
 
 /**
  * <p>
@@ -85,6 +86,7 @@ public class Event implements Serializable {
      * </ol>
      */
     @NotNull
+    @Column(columnDefinition = "TEXT")
     @Size(min = 20, max = 1000, message = "An event's description must contain between 20 and 1000 characters")
     private String description;
 

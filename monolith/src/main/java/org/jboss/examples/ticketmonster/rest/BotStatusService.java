@@ -1,16 +1,15 @@
 package org.jboss.examples.ticketmonster.rest;
 
-import java.util.List;
-
-import javax.inject.Inject;
-import javax.ws.rs.GET;
-import javax.ws.rs.PUT;
-import javax.ws.rs.Path;
-import javax.ws.rs.Produces;
-import javax.ws.rs.core.MediaType;
-import javax.ws.rs.core.Response;
-
+import jakarta.inject.Inject;
+import jakarta.ws.rs.GET;
+import jakarta.ws.rs.PUT;
+import jakarta.ws.rs.Path;
+import jakarta.ws.rs.Produces;
+import jakarta.ws.rs.core.MediaType;
+import jakarta.ws.rs.core.Response;
 import org.jboss.examples.ticketmonster.service.BotService;
+
+import java.util.List;
 
 /**
  * A non-RESTful service for providing the current state of the Bot. This service also allows the bot to be started, stopped or
@@ -23,7 +22,7 @@ import org.jboss.examples.ticketmonster.service.BotService;
 public class BotStatusService {
 
     @Inject
-    private BotService botService;
+    BotService botService;
 
     /**
      * Produces a JSON representation of the bot's log, containing a maximum of 50 messages logged by the Bot.

@@ -1,11 +1,11 @@
 package org.jboss.examples.ticketmonster.rest;
 
+import org.jboss.examples.ticketmonster.model.Performance;
+
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
-
-import org.jboss.examples.ticketmonster.model.Performance;
 
 /**
  * <p>

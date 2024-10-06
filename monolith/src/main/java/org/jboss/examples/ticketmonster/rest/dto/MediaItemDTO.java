@@ -2,9 +2,9 @@ package org.jboss.examples.ticketmonster.rest.dto;
 
 import java.io.Serializable;
 import org.jboss.examples.ticketmonster.model.MediaItem;
-import javax.persistence.EntityManager;
+import jakarta.persistence.EntityManager;
 import org.jboss.examples.ticketmonster.model.MediaType;
-import javax.xml.bind.annotation.XmlRootElement;
+import jakarta.xml.bind.annotation.XmlRootElement;
 
 @XmlRootElement
 public class MediaItemDTO implements Serializable

@@ -2,8 +2,8 @@ package org.jboss.examples.ticketmonster.rest.dto;
 
 import java.io.Serializable;
 import org.jboss.examples.ticketmonster.model.Performance;
-import javax.persistence.EntityManager;
-import javax.persistence.TypedQuery;
+import jakarta.persistence.EntityManager;
+import jakarta.persistence.TypedQuery;
 import java.util.Date;
 
 public class NestedPerformanceDTO implements Serializable
@@ -44,7 +44,7 @@ public class NestedPerformanceDTO implements Serializable
          {
             entity = findByIdQuery.getSingleResult();
          }
-         catch (javax.persistence.NoResultException nre)
+         catch (jakarta.persistence.NoResultException nre)
          {
             entity = null;
          }

@@ -1,8 +1,8 @@
 package org.jboss.examples.ticketmonster.model;
 
-import javax.persistence.Embeddable;
-import javax.persistence.ManyToOne;
-import javax.validation.constraints.Min;
+import jakarta.persistence.Embeddable;
+import jakarta.persistence.ManyToOne;
+import jakarta.validation.constraints.Min;
 
 /**
  * TODO

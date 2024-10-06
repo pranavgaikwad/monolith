@@ -1,27 +1,19 @@
 package org.jboss.examples.ticketmonster.rest;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
-import java.util.TreeMap;
-
-import javax.ejb.Stateless;
-import javax.enterprise.event.Event;
-import javax.inject.Inject;
-import javax.validation.ConstraintViolation;
-import javax.validation.ConstraintViolationException;
-import javax.ws.rs.Consumes;
-import javax.ws.rs.DELETE;
-import javax.ws.rs.POST;
-import javax.ws.rs.Path;
-import javax.ws.rs.PathParam;
-import javax.ws.rs.core.MediaType;
-import javax.ws.rs.core.MultivaluedHashMap;
-import javax.ws.rs.core.Response;
-
+import jakarta.enterprise.context.ApplicationScoped;
+import jakarta.enterprise.event.Event;
+import jakarta.inject.Inject;
+import jakarta.transaction.Transactional;
+import jakarta.validation.ConstraintViolation;
+import jakarta.validation.ConstraintViolationException;
+import jakarta.ws.rs.Consumes;
+import jakarta.ws.rs.DELETE;
+import jakarta.ws.rs.POST;
+import jakarta.ws.rs.Path;
+import jakarta.ws.rs.PathParam;
+import jakarta.ws.rs.core.MediaType;
+import jakarta.ws.rs.core.MultivaluedHashMap;
+import jakarta.ws.rs.core.Response;
 import org.jboss.examples.ticketmonster.model.Booking;
 import org.jboss.examples.ticketmonster.model.Performance;
 import org.jboss.examples.ticketmonster.model.Seat;
@@ -33,6 +25,14 @@ import org.jboss.examples.ticketmonster.service.AllocatedSeats;
 import org.jboss.examples.ticketmonster.service.SeatAllocationService;
 import org.jboss.examples.ticketmonster.util.qualifier.Cancelled;
 import org.jboss.examples.ticketmonster.util.qualifier.Created;
+
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
+import java.util.TreeMap;
 
 /**
  * <p>
@@ -49,17 +49,17 @@ import org.jboss.examples.ticketmonster.util.qualifier.Created;
  *     This is a stateless service, we declare it as an EJB for transaction demarcation
  * </p>
  */
-@Stateless
+@ApplicationScoped
 public class BookingService extends BaseEntityService<Booking> {
 
     @Inject
     SeatAllocationService seatAllocationService;
 
     @Inject @Cancelled
-    private Event<Booking> cancelledBookingEvent;
+    Event<Booking> cancelledBookingEvent;
 
     @Inject @Created
-    private Event<Booking> newBookingEvent;
+    Event<Booking> newBookingEvent;
     
     public BookingService() {
         super(Booking.class);
@@ -82,6 +82,7 @@ public class BookingService extends BaseEntityService<Booking> {
      * @return
      */
     @DELETE
+    @Transactional
     @Path("/{id:[0-9][0-9]*}")
     public Response deleteBooking(@PathParam("id") Long id) {
         Booking booking = getEntityManager().find(Booking.class, id);
@@ -120,6 +121,7 @@ public class BookingService extends BaseEntityService<Booking> {
      * <p> Data is received in JSON format. For easy handling, it will be unmarshalled in the support
      * {@link BookingRequest} class.
      */
+    @Transactional
     @Consumes(MediaType.APPLICATION_JSON)
     public Response createBooking(BookingRequest bookingRequest) {
         try {

@@ -1,21 +1,20 @@
 package org.jboss.examples.ticketmonster.rest;
 
+import jakarta.enterprise.context.ApplicationScoped;
+import jakarta.persistence.Query;
+import jakarta.persistence.criteria.CriteriaBuilder;
+import jakarta.persistence.criteria.Predicate;
+import jakarta.persistence.criteria.Root;
+import jakarta.ws.rs.GET;
+import jakarta.ws.rs.Path;
+import jakarta.ws.rs.PathParam;
+import jakarta.ws.rs.Produces;
+import jakarta.ws.rs.core.MediaType;
+import jakarta.ws.rs.core.MultivaluedMap;
+import org.jboss.examples.ticketmonster.model.Show;
+
 import java.util.ArrayList;
 import java.util.List;
-
-import javax.ejb.Stateless;
-import javax.persistence.Query;
-import javax.persistence.criteria.CriteriaBuilder;
-import javax.persistence.criteria.Predicate;
-import javax.persistence.criteria.Root;
-import javax.ws.rs.GET;
-import javax.ws.rs.Path;
-import javax.ws.rs.PathParam;
-import javax.ws.rs.Produces;
-import javax.ws.rs.core.MediaType;
-import javax.ws.rs.core.MultivaluedMap;
-
-import org.jboss.examples.ticketmonster.model.Show;
 
 /**
  * @author Marius Bogoevici
@@ -26,7 +25,7 @@ import org.jboss.examples.ticketmonster.model.Show;
  *     This is a stateless service, we declare it as an EJB for transaction demarcation
  * </p>
  */
-@Stateless
+@ApplicationScoped
 public class ShowService extends BaseEntityService<Show> {
 
     public ShowService() {

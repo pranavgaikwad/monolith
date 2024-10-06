@@ -1,12 +1,12 @@
 package org.jboss.examples.ticketmonster.rest;
 
+import org.jboss.examples.ticketmonster.model.Performance;
+import org.jboss.examples.ticketmonster.model.Show;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
-
-import org.jboss.examples.ticketmonster.model.Performance;
-import org.jboss.examples.ticketmonster.model.Show;
 
 /**
  * Metric data for a Show. Contains the identifier for the Show to identify it,
